@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import java.util.List;
 
 @Entity
@@ -42,6 +44,8 @@ public class User {
     String mobilePhone;
 
     @Column(name = "rating", nullable = false)
+    @DecimalMin(value = "1.0", inclusive = true, message = "Rating must be equal or greater than 1.0")
+    @DecimalMax(value = "10.0", inclusive = true, message = "Rating must be equal or less than 10.0")
     Double rating;
 
     @Lob
@@ -55,18 +59,28 @@ public class User {
     @Column(name = "role", nullable = false)
     Role role;
 
-    @Column(name = "refresh_token")
-    String refreshToken;
+//    @OneToMany(mappedBy = "user")
+//    @JsonManagedReference
+////    @JsonIgnore
+//    List<Book> books;
+//
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+//    @JsonManagedReference
+//    @JsonIgnore
+//    WishList wishList;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     List<Book> books;
 
-//    @OneToMany(mappedBy = "user")
-//    @JsonIgnore
-//    List<Book> wishList;
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    List<WishList> wishListBooks;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     List<Review> reviews;
+
+    @Column(name = "refresh_token")
+    String refreshToken;
 }

@@ -57,6 +57,12 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonIdentityReference(alwaysAsId = true)
+//    @JsonIdentityReference(alwaysAsId = true)
+    @JsonIgnore
     User user;
+
+//    @ManyToOne
+//    @JoinColumn(name = "wish_list_id")
+//    @JsonBackReference
+//    WishList wishList;
 }
