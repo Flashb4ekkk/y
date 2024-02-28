@@ -23,23 +23,15 @@ public class WishList {
     @Column(name = "id", nullable = false)
     Long id;
 
-//    @OneToOne
-//    @JoinColumn(name = "user_id")
-//    @JsonIdentityReference(alwaysAsId = true)
-//    User user;
-//
-//    @OneToMany(mappedBy = "wishList")
-//    @JsonManagedReference
-//    List<Book> books;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     @JsonIgnore
     User user;
 
-//    @ManyToOne
-//    @JoinColumn(name = "book_id", nullable = false)
-//    Book book;
-    @Column(name = "book_id", nullable = false)
-    Long bookId;
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist_books",
+            joinColumns = @JoinColumn(name = "wishlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
+    List<Book> books;
 }

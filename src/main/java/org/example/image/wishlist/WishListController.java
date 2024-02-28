@@ -1,6 +1,8 @@
 package org.example.image.wishlist;
 
 import jakarta.transaction.Transactional;
+import org.example.image.dto.WishListDTO;
+import org.example.image.model.Book;
 import org.example.image.model.WishList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,18 +21,21 @@ public class WishListController {
     }
 
     @PostMapping("/books/{bookId}")
+    @Transactional
     public ResponseEntity<?> addBookToWishList(@PathVariable Long bookId, Principal principal) {
-        WishList wishList = wishListService.addBookToWishList(principal.getName(), bookId);
-        return ResponseEntity.ok(wishList);
+        wishListService.addBookToWishList(principal.getName(), bookId);
+        return ResponseEntity.ok("Book added to wish list");
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<WishList>> getWishList(Principal principal) {
-        List<WishList> wishList = wishListService.getWishListByEmail(principal.getName());
-        return ResponseEntity.ok(wishList);
+    @Transactional
+    public ResponseEntity<?> getWishList(Principal principal) {
+        List<Book> books = wishListService.getWishListByEmail(principal.getName());
+        return ResponseEntity.ok(books);
     }
 
     @DeleteMapping("/")
+    @Transactional
     public ResponseEntity<Void> clearWishList(Principal principal) {
         wishListService.clearWishList(principal.getName());
         return ResponseEntity.noContent().build();

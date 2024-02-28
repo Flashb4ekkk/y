@@ -59,23 +59,13 @@ public class User {
     @Column(name = "role", nullable = false)
     Role role;
 
-//    @OneToMany(mappedBy = "user")
-//    @JsonManagedReference
-////    @JsonIgnore
-//    List<Book> books;
-//
-//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-//    @JsonManagedReference
-//    @JsonIgnore
-//    WishList wishList;
-
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     List<Book> books;
 
-    @OneToMany(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    List<WishList> wishListBooks;
+    WishList wishList;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore

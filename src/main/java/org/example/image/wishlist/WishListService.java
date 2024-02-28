@@ -1,5 +1,7 @@
 package org.example.image.wishlist;
 
+import jakarta.transaction.Transactional;
+import org.example.image.dto.WishListDTO;
 import org.example.image.exception.ResourceNotFoundException;
 import org.example.image.model.Book;
 import org.example.image.model.User;
@@ -27,24 +29,36 @@ public class WishListService {
     public WishList addBookToWishList(String email, Long bookId) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with email :: " + email));
-        bookRepository.findById(bookId)
+        Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new ResourceNotFoundException("Book not found with id :: " + bookId));
-        WishList wishList = new WishList();
-        wishList.setUser(user);
-        wishList.setBookId(bookId);
+        WishList wishList = user.getWishList();
+        if (wishList == null) {
+            wishList = new WishList();
+            wishList.setUser(user);
+            wishList.setBooks(new ArrayList<>());
+        }
+        wishList.getBooks().add(book);
         return wishListRepository.save(wishList);
     }
 
-    public List<WishList> getWishListByEmail(String email) {
+//    @Transactional
+    public List<Book> getWishListByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with email :: " + email));
-        return user.getWishListBooks();
+        WishList wishList = user.getWishList();
+        if (wishList == null) {
+            throw new ResourceNotFoundException("WishList not found for user with email :: " + email);
+        }
+        return new ArrayList<>(wishList.getBooks());
     }
 
     public void clearWishList(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with email :: " + email));
-        user.getWishListBooks().clear();
-        userRepository.save(user);
+        WishList wishList = user.getWishList();
+        if (wishList != null) {
+            wishList.getBooks().clear();
+            wishListRepository.save(wishList);
+        }
     }
 }
