@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="title-input" placeholder="Title">
+<input type="text" id="genres-input" placeholder="Genres (comma separated)">
+<input type="text" id="description-input" placeholder="Description">
+<input type="text" id="author-input" placeholder="Author">
+<input type="number" id="year-input" placeholder="Year">
+<input type="text" id="publishedBy-input" placeholder="Published By">
+<input type="number" id="price-input" placeholder="Price">
+<input type="file" id="file-input">
+<!-- Add JWT input field -->
+<input type="text" id="jwt-input" placeholder="JWT">
+<button onClick="addBook()" type="button">add book</button>
+<button onclick="loadAllBooks()">Показати всі книги</button>
+<div id="books"></div>
+<script>
+    function loadAllBooks() {
+        fetch(`http://localhost:8080/api/book/get-all`)
+            .then(response => response.json())
+            .then(data => {
+                var booksDiv = document.getElementById('books');
+                booksDiv.innerHTML = '';
+                data.forEach(book => {
+                    var p = document.createElement('p');
+                    p.textContent = "ID: " + book.id + ", Title: " + book.title + ", Author: " + book.author + ", Year: " + book.year + ", Published By: " + book.publishedBy + ", Price: " + book.price;
+                    booksDiv.appendChild(p);
+
+                    var img = document.createElement('img');
+                    img.src = "data:image/jpeg;base64," + book.image;
+                    booksDiv.appendChild(img);
+                });
+            })
+            .catch(error => console.error(error));
+    }
+    function addBook() {
+        // Get JWT from input field
+        var jwt = document.getElementById('jwt-input').value;
+
+        var titleInput = document.getElementById('title-input');
+        var genresInput = document.getElementById('genres-input');
+        var descriptionInput = document.getElementById('description-input');
+        var authorInput = document.getElementById('author-input');
+        var yearInput = document.getElementById('year-input');
+        var publishedByInput = document.getElementById('publishedBy-input');
+        var priceInput = document.getElementById('price-input');
+        var fileInput = document.getElementById('file-input');
+        var file = fileInput.files[0];
+
+        var book = {
+            title: titleInput.value,
+            genres: genresInput.value.split(','),
+            description: descriptionInput.value,
+            author: authorInput.value,
+            year: yearInput.value,
+            publishedBy: publishedByInput.value,
+            price: priceInput.value
+        };
+
+        var formData = new FormData();
+        formData.append('book', JSON.stringify(book));
+        formData.append('image', file);
+
+        fetch('http://localhost:8080/api/book/add', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Authorization': 'Bearer ' + jwt
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+
+</script>
+</body>
+</html>
