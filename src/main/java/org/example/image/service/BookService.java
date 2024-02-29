@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BookService {
@@ -72,8 +73,11 @@ public class BookService {
         return bookDetails;
     }
 
-    public List<Book> getAll() {
-        return bookRepository.findAll();
+    public List<Book> getAllAvailable() {
+        List<Book> books = bookRepository.findAll();
+        return books.stream()
+                .filter(book -> book.getStatus() == BookStatus.AVAILABLE)
+                .collect(Collectors.toList());
     }
 
     public Optional<Book> findById(Long id) {

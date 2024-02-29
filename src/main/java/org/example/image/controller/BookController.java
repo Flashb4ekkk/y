@@ -56,6 +56,6 @@ public class BookController {
     @GetMapping("/get-all")
     @Transactional
     public List<Book> getAllBooks() {
-        return bookService.getAll();
+        return bookService.getAllAvailable();
     }
 }

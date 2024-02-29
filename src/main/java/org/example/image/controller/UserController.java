@@ -40,23 +40,10 @@ public class UserController {
         return ResponseEntity.ok("User deleted");
     }
 
-//    @PostMapping("/add-wishlist/{id}")
-//    public ResponseEntity<?> addToWishList(@PathVariable String id, Principal principal) {
-//        userService.addToWishList(id, principal.getName());
-//        return ResponseEntity.ok("Book added to wishlist");
-//    }
-//
-//    @GetMapping("/get-wishlist")
-//    public ResponseEntity<?> getWishList(Principal principal) throws Exception {
-//        return ResponseEntity.ok(userService.getWishList(principal.getName()));
-//    }
-//
-//    @DeleteMapping("/clear-wishlist")
-//    public ResponseEntity<?> deleteUser(Principal principal) throws Exception {
-//        if(userService.findByEmail(principal.getName()).isEmpty()) {
-//            return ResponseEntity.badRequest().body("User not found");
-//        }
-//        userService.deleteWishList(principal.getName());
-//        return ResponseEntity.ok("User deleted");
-//    }
+    @PostMapping("/add-buck/{bucks}")
+    @Transactional
+    public ResponseEntity<?> addBucksToUser(Principal principal, @PathVariable Long bucks) {
+        userService.addBucksToUser(principal.getName(), bucks);
+        return ResponseEntity.ok("bucks added");
+    }
 }

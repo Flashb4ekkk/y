@@ -115,27 +115,9 @@ public class UserService implements UserDetailsService {
         }
     }
 
-//    public void addToWishList(String id, String name) {
-//        User user = userRepository.findByEmail(name).get();
-//        Book book = bookRepository.findById(Long.parseLong(id)).get();
-//        if(user.getWishList() == null) {
-//            user.setWishList(new ArrayList<>());
-//        }
-//        user.getWishList().add(book);
-//        userRepository.save(user);
-//    }
-//
-//    public List<Book> getWishList(String name) {
-//        User user = userRepository.findByEmail(name).get();
-//        if(user.getWishList() == null) {
-//            throw new RuntimeException("Wishlist is empty");
-//        }
-//        return user.getWishList();
-//    }
-//
-//    public void deleteWishList(String name) {
-//        User user = userRepository.findByEmail(name).get();
-//        user.getWishList().clear();
-//        userRepository.save(user);
-//    }
+    public void addBucksToUser(String name, Long bucks) {
+        User user = userRepository.findByEmail(name).get();
+        user.setBuck(user.getBuck() + bucks);
+        userRepository.save(user);
+    }
 }
