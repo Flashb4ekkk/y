@@ -25,27 +25,25 @@ public class User {
     @Column(name = "id", nullable = false)
     Long id;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, length = 100)
     String username;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true, length = 110)
     String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, length = 100)
     String password;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name", nullable = false, length = 100)
     String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(name = "last_name", nullable = false, length = 100)
     String lastName;
 
-    @Column(name = "mobile_phone", nullable = false, unique = true)
+    @Column(name = "mobile_phone", nullable = false)
     String mobilePhone;
 
     @Column(name = "rating", nullable = false)
-    @DecimalMin(value = "1.0", inclusive = true, message = "Rating must be equal or greater than 1.0")
-    @DecimalMax(value = "10.0", inclusive = true, message = "Rating must be equal or less than 10.0")
     Double rating;
 
     @Lob
@@ -56,7 +54,7 @@ public class User {
     Long buck;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role", nullable = false)
+    @Column(name = "role", nullable = false, length = 20)
     Role role;
 
     @OneToMany(mappedBy = "user")
@@ -67,8 +65,8 @@ public class User {
     @JsonIgnore
     WishList wishList;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
+    @OneToMany(mappedBy = "reviewer", cascade = CascadeType.ALL)
+    @JsonBackReference
     List<Review> reviews;
 
     @Column(name = "refresh_token")

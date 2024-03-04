@@ -1,5 +1,6 @@
 package org.example.image.purchase;
 
+import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class PurchaseController {
     }
 
     @PostMapping("/")
+    @Transactional
     public ResponseEntity<?> buyBook(@RequestBody PurchaseDTO purchaseDTO) {
         purchaseService.buyBook(purchaseDTO);
         return ResponseEntity.ok("Book bought successfully, wait when the seller confirms the purchase.");

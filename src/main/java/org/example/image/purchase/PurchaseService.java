@@ -2,6 +2,7 @@ package org.example.image.purchase;
 
 import org.example.image.model.Book;
 import org.example.image.model.BookStatus;
+import org.example.image.model.Purchase;
 import org.example.image.model.User;
 import org.example.image.repository.BookRepository;
 import org.example.image.repository.UserRepository;
