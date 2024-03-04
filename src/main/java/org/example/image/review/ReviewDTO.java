@@ -9,5 +9,5 @@ import org.example.image.model.Review;
 public class ReviewDTO {
     private String content;
     private double rating;
-    private String toEmail;
+    private String revieweeEmail;
 }

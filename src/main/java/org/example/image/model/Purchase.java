@@ -1,4 +1,4 @@
-package org.example.image.purchase;
+package org.example.image.model;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.example.image.model.Book;
 import org.example.image.model.User;
+import org.example.image.purchase.PurchaseStatus;
 
 @Entity
 @Getter
@@ -36,6 +37,6 @@ public class Purchase {
     Book book;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = false, length = 30)
     PurchaseStatus status;
 }

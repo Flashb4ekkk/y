@@ -33,26 +33,26 @@ public class Book {
     @ElementCollection(targetClass = Genre.class)
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "book_genre")
-    @Column(name = "genre")
+    @Column(name = "genre", length = 50)
     private List<Genre> genres;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, length = 500)
     String description;
 
-    @Column(name = "author", nullable = false)
+    @Column(name = "author", nullable = false, length = 100)
     String author;
 
     @Column(name = "year", nullable = false)
     int year;
 
-    @Column(name = "published_by", nullable = false)
+    @Column(name = "published_by", nullable = false, length = 150)
     String publishedBy;
 
     @Column(name = "price", nullable = false)
     int price;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = false, length = 30)
     BookStatus status;
 
     @ManyToOne
