@@ -1,4 +1,4 @@
-package org.example.image.dto;
+package org.example.image.user;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,5 @@
 package org.example.image.wishlist;
 
-import org.example.image.model.WishList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -2,7 +2,7 @@ package org.example.image.auth;
 
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.image.dto.UserRegistration;
+import org.example.image.user.UserRegistration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

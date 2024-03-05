@@ -1,9 +1,7 @@
 package org.example.image.wishlist;
 
 import jakarta.transaction.Transactional;
-import org.example.image.dto.WishListDTO;
-import org.example.image.model.Book;
-import org.example.image.model.WishList;
+import org.example.image.book.Book;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

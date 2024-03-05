@@ -1,4 +1,4 @@
-package org.example.image.exception;
+package org.example.image.auth;
 
 import lombok.Data;
 

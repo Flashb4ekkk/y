@@ -1,12 +1,10 @@
 package org.example.image.review;
 
-import org.example.image.model.Review;
-import org.example.image.model.User;
-import org.example.image.repository.UserRepository;
+import org.example.image.user.User;
+import org.example.image.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 

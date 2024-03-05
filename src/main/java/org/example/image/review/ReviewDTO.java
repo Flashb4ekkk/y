@@ -2,7 +2,6 @@ package org.example.image.review;
 
 import lombok.Builder;
 import lombok.Data;
-import org.example.image.model.Review;
 
 @Data
 @Builder

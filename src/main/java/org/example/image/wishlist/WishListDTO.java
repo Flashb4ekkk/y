@@ -1,8 +1,8 @@
-package org.example.image.dto;
+package org.example.image.wishlist;
 
 import lombok.Builder;
 import lombok.Data;
-import org.example.image.model.Book;
+import org.example.image.book.Book;
 
 import java.util.List;
 

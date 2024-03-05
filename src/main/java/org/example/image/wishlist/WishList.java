@@ -1,9 +1,11 @@
-package org.example.image.model;
+package org.example.image.wishlist;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.example.image.book.Book;
+import org.example.image.user.User;
 
 import java.util.List;
 

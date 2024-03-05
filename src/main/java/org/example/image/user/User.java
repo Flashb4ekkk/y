@@ -1,12 +1,13 @@
-package org.example.image.model;
+package org.example.image.user;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.example.image.book.Book;
+import org.example.image.review.Review;
+import org.example.image.wishlist.WishList;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 import java.util.List;
 
 @Entity

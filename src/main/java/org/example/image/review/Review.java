@@ -1,12 +1,12 @@
-package org.example.image.model;
+package org.example.image.review;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.example.image.user.User;
 
-    @Entity
+@Entity
     @Getter
     @Setter
     @NoArgsConstructor

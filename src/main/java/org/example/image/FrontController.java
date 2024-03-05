@@ -1,4 +1,4 @@
-package org.example.image.controller;
+package org.example.image;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;

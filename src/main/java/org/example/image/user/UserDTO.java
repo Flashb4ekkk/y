@@ -1,15 +1,10 @@
-package org.example.image.dto;
+package org.example.image.user;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
-import org.example.image.model.Book;
-import org.example.image.model.Review;
-import org.example.image.model.Role;
+import org.example.image.book.Book;
+import org.example.image.review.Review;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 import java.util.List;
 
 @Data

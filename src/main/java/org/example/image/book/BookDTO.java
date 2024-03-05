@@ -1,9 +1,6 @@
-package org.example.image.dto;
+package org.example.image.book;
 
 import lombok.*;
-import org.example.image.model.Book;
-import org.example.image.model.Genre;
-import org.example.image.model.Role;
 
 import java.util.List;
 

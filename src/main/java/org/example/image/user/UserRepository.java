@@ -1,6 +1,5 @@
-package org.example.image.repository;
+package org.example.image.user;
 
-import org.example.image.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

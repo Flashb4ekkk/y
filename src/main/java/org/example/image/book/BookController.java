@@ -1,11 +1,7 @@
-package org.example.image.controller;
+package org.example.image.book;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
-import org.apache.coyote.Response;
-import org.example.image.dto.BookDTO;
-import org.example.image.model.Book;
-import org.example.image.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

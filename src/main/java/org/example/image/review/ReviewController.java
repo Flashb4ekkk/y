@@ -1,7 +1,6 @@
 package org.example.image.review;
 
 import jakarta.transaction.Transactional;
-import org.example.image.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

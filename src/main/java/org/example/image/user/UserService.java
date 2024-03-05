@@ -1,12 +1,6 @@
-package org.example.image.service;
+package org.example.image.user;
 
 import jakarta.transaction.Transactional;
-import org.example.image.dto.UserRegistration;
-import org.example.image.model.Book;
-import org.example.image.model.Role;
-import org.example.image.model.User;
-import org.example.image.repository.BookRepository;
-import org.example.image.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,9 +23,6 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private BookRepository bookRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

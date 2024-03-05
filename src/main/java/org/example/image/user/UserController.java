@@ -1,10 +1,7 @@
-package org.example.image.controller;
+package org.example.image.user;
 
 import jakarta.transaction.Transactional;
-import org.example.image.model.User;
-import org.example.image.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

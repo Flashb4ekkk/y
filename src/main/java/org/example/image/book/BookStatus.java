@@ -1,4 +1,4 @@
-package org.example.image.model;
+package org.example.image.book;
 
 public enum BookStatus {
     AVAILABLE,

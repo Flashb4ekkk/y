@@ -1,4 +1,4 @@
-package org.example.image.model;
+package org.example.image.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

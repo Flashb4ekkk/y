@@ -1,11 +1,10 @@
 package org.example.image.auth;
 
 import lombok.RequiredArgsConstructor;
-import org.example.image.exception.AppError;
-import org.example.image.dto.UserRegistration;
-import org.example.image.model.Role;
-import org.example.image.model.User;
-import org.example.image.service.UserService;
+import org.example.image.user.UserRegistration;
+import org.example.image.user.Role;
+import org.example.image.user.User;
+import org.example.image.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

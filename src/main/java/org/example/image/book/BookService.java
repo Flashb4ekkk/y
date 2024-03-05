@@ -1,16 +1,12 @@
-package org.example.image.service;
+package org.example.image.book;
 
-import org.example.image.dto.BookDTO;
-import org.example.image.model.Book;
-import org.example.image.model.BookStatus;
-import org.example.image.repository.BookRepository;
+import org.example.image.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -78,9 +74,5 @@ public class BookService {
         return books.stream()
                 .filter(book -> book.getStatus() == BookStatus.AVAILABLE)
                 .collect(Collectors.toList());
-    }
-
-    public Optional<Book> findById(Long id) {
-        return bookRepository.findById(id);
     }
 }

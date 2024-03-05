@@ -1,12 +1,11 @@
-package org.example.image.model;
+package org.example.image.purchase;
 
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.example.image.model.Book;
-import org.example.image.model.User;
-import org.example.image.purchase.PurchaseStatus;
+import org.example.image.book.Book;
+import org.example.image.user.User;
 
 @Entity
 @Getter

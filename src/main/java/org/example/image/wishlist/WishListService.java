@@ -1,13 +1,9 @@
 package org.example.image.wishlist;
 
-import jakarta.transaction.Transactional;
-import org.example.image.dto.WishListDTO;
-import org.example.image.exception.ResourceNotFoundException;
-import org.example.image.model.Book;
-import org.example.image.model.User;
-import org.example.image.model.WishList;
-import org.example.image.repository.BookRepository;
-import org.example.image.repository.UserRepository;
+import org.example.image.book.Book;
+import org.example.image.user.User;
+import org.example.image.book.BookRepository;
+import org.example.image.user.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
